@@ -55,20 +55,23 @@
             console.log(workbook);
             /* DO SOMETHING WITH workbook HERE */
             const sheet1 = sheet2arr(workbook.Sheets.Sheet1);
-            const sheet2 = sheet2arr(workbook.Sheets.Sheet1);
+            const sheet2 = sheet2arr(workbook.Sheets.Sheet2);
 
             const originalProductIds = [];
-
+            const sheet2ProductIds = [];
             for (const sheet of sheet1) {
                 if (!originalProductIds.includes(sheet[0])) {
                     originalProductIds.push(sheet[0]);
                 }
             }
-            console.log(originalProductIds);
-            console.log(sheet1);
 
-            console.log(sheet2);
-
+            for (const sheet of sheet2) {
+                if (!sheet2ProductIds.includes(sheet[4])) {
+                    sheet2ProductIds.push(sheet[4]);
+                }
+            }
+            console.log('originalProductIds', originalProductIds);
+            console.log('sheet2ProductIds', sheet2ProductIds);
         }
 
         req.send();
